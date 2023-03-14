@@ -1,0 +1,43 @@
+<div class="header-home">
+    <img class="logo" src="../../assets/img/noel.png" alt="noel">
+    <h1>Mon réseau</h1>
+    <div class="informations">
+        <div class="name">
+            <p>{{user?.name}}</p>
+            <p>{{ user?.surname }}</p>
+        </div>
+        <img class="img-user" src="../../assets/img/{{ user?.image}}">
+    </div>
+</div>
+<div class="content-home">
+    <label for="friends">Mes amis</label>
+    <input type="checkbox" name="friends" (change)="getAllfriends($event)">
+    <label for="groups">Mes groups</label>
+    <input type="checkbox" name="groups" (change)="getAllMyGroups($event)">
+    <label for="groupsAdmin">Mes groups admin</label>
+    <input type="checkbox" name="groupsAdmin" (change)="getAllMyGroupsAdmin($event)">
+
+    <!-- <div *ngIf="isMyGroupe && isMyfriends">
+        <div *ngFor="let obj of groupAndFriends">
+
+            {{obj.name}}
+        </div>
+    </div> -->
+    <div *ngIf="isMyfriends && !isMyGroupe">
+        <div *ngFor="let obj of groupAndFriends">
+
+            {{obj.name}}
+        </div>
+    </div>
+    <div *ngIf="isMyGroupe && ! isMyfriends">
+        <div *ngFor="let obj of groupAndFriends">
+
+            {{obj.name}}
+        </div>
+    </div>
+    
+
+    <!-- <div class="all-groups"*ngFor="let group of groups">
+        {{ group.name }}
+    </div> -->
+</div>
